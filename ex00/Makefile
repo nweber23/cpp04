@@ -3,9 +3,9 @@ MAKEFLAGS	= -s
 CPP			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++17
 
-NAME		= claptrap
+NAME		= animal
 
-SRCS		= main.cpp
+SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS_DIR	= objs
 OBJS		= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
