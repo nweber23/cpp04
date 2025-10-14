@@ -1,48 +1,22 @@
 #include <iostream>
-#include <vector>
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main() {
-	std::cout << "=== Basic polymorphism test ===\n";
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
-	delete i;
-	std::cout << "\n=== Array polymorphism test ===\n";
-	std::vector<Animal*> zoo;
-	for (int k = 0; k < 3; ++k) zoo.push_back(new Dog());
-	for (int k = 0; k < 2; ++k) zoo.push_back(new Cat());
-	for (size_t k = 0; k < zoo.size(); ++k) {
-		std::cout << "[" << k << "] type=" << zoo[k]->getType() << " -> ";
-		zoo[k]->makeSound();
-	}
-	for (Animal* a : zoo) delete a;
-	std::cout << "\n=== Copy & assignment tests ===\n";
+	std::cout << "=== Brain ideas deep-copy tests ===\n";
 	Dog d1;
-	{
-		Dog d2 = d1;
-		d2.makeSound();
-	}
-	Dog d3;
-	d3 = d1;
-	std::cout << "\n=== WrongAnimal demonstration ===\n";
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wcat = new WrongCat();
-	std::cout << "wcat type: " << wcat->getType() << "\n";
-	wcat->makeSound();
-	delete wmeta;
-	delete wcat;
+	d1.setBrainIdea(0, "Chase ball");
+	Dog d2 = d1;
+	d1.setBrainIdea(0, "Chew bone");
+	std::cout << "Dog d1 idea[0]: " << d1.getBrainIdea(0) << "\n";
+	std::cout << "Dog d2 idea[0]: " << d2.getBrainIdea(0) << "\n";
+	Cat c1;
+	c1.setBrainIdea(42, "Nap on keyboard");
+	Cat c2;
+	c2 = c1;
+	c1.setBrainIdea(42, "Knock cup");
+	std::cout << "Cat c1 idea[42]: " << c1.getBrainIdea(42) << "\n";
+	std::cout << "Cat c2 idea[42]: " << c2.getBrainIdea(42) << "\n";
+
 	return 0;
 }
