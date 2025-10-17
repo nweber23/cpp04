@@ -5,7 +5,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++17
 
 NAME		=  ex03
 
-SRCS		= main.cpp Amateria.cpp
+SRCS		= main.cpp Amateria.cpp Character.cpp Ice.cpp
 
 OBJS_DIR	= objs
 OBJS		= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
