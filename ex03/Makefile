@@ -3,9 +3,9 @@ MAKEFLAGS	= -s
 CPP			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++17
 
-NAME		=
+NAME		=  ex03
 
-SRCS		= main.cpp
+SRCS		= main.cpp Amateria.cpp
 
 OBJS_DIR	= objs
 OBJS		= $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
