@@ -78,5 +78,7 @@ int main() {
 	delete ice;
 	delete src2;
 
+	Character::cleanDropped();
+
 	return 0;
 }
